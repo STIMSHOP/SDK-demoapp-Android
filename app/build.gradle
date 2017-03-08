@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    // This is required to locate the SDK's AAR file specified in the dependencies block
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+android {
+    // We define these build constants in our main gradle.properties file. You can define it
+    // manually here.
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        // We define these build constants in our main gradle.properties file. You can define it
+        // manually here.
+        applicationId "com.stimshop.sdk.demo"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        jackOptions {
+            enabled false
+        }
+        multiDexEnabled true
+    }
+
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+    }
+
+    // We define a number of rules into our proguard-common.txt file, have a look at it!
+    buildTypes {
+        debug {
+            minifyEnabled false
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-common.txt', 'proguard-debug.txt'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-common.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.support:multidex:1.0.1'
+    // Demo app dependencies, other than the StimShop SDK
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    // Stimshop SDK's dependencies
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-jackson:2.0.0-beta2'
+    compile 'com.google.android.gms:play-services-ads:10.2.0'
+    compile 'net.sourceforge.jtransforms:jtransforms:2.4.0'
+
+    // BEGIN - Stimshop SDK dependencies
+
+    // Change stimshop-sdk-commons-release to the AAR file name you have
+    // Usually stimshop-sdk-commons-x.y.z where x.y.z is the version number
+    compile(name:'stimshop-sdk-commons-4.2.1', ext:'aar') {
+        transitive=true
+    }
+}

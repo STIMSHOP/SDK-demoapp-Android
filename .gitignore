@@ -6,6 +6,7 @@
 .DS_Store
 /build
 /captures
+/app/libs/*.aar
 
 .externalNativeBuild
 ### Windows template

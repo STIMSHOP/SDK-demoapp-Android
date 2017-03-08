@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Stimshop SDK - Detection Demo</string>
+    <string name="act_main_sw_initialize">Is StimShop ready?</string>
+    <string name="act_main_sw_toggle_detection">Toggle detection</string>
+    <string name="act_main_sw_jack_status">Jack plugged-in ?</string>
+    <string name="act_main_sw_microphone_status">External microphone present ?</string>
+</resources>

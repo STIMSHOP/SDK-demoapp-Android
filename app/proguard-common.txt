@@ -1,0 +1,84 @@
+########################################################################
+# Retrofit
+
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-dontwarn okio.**
+-dontwarn org.mockito.**
+-dontwarn sun.reflect.**
+-dontwarn android.test.**
+
+########################################################################
+# Jackson
+
+-dontwarn javax.xml.**
+-dontwarn javax.xml.stream.events.**
+-dontwarn com.fasterxml.jackson.databind.**
+-dontwarn com.fasterxml.jackson.map.ext.**
+
+-keepattributes Signature
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepclassmembers enum com.fasterxml.jackson.annotate.** { *; }
+-keepclassmembers enum com.fasterxml.jackson.map.introspect.** { *; }
+
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepnames interface com.fasterxml.jackson.** { *; }
+-keepclassmembers class * {
+    @com.fasterxml.jackson.annotate.* <fields>;
+    @com.fasterxml.jackson.annotate.* <init>(...);
+}
+
+########################################################################
+# Stimshop SDK
+
+-keep class com.stimshop.sdk.** { *; }
+
+########################################################################
+# Butterknife
+
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+
+########################################################################
+# GUAVA
+
+-dontwarn javax.annotation.**
+-dontwarn javax.inject.**
+-dontwarn sun.misc.Unsafe
+-dontwarn com.google.common.collect.MinMaxPriorityQueue
+-dontwarn org.joda.convert.JDKStringConverter$9
+
+-keep,allowoptimization class com.google.inject.** { *; }
+-keep,allowoptimization class javax.inject.** { *; }
+-keep,allowoptimization class javax.annotation.** { *; }
+-keep,allowoptimization class com.google.inject.Binder
+
+-keepclasseswithmembers public class * {
+    public static void main(java.lang.String[]);
+}
+
+-keepclassmembers,allowoptimization class com.google.common.* {
+    void finalizeReferent();
+    void startFinalizer(java.lang.Class,java.lang.Object);
+}
+
+########################################################################
+# Some internal test classes
+
+-dontwarn org.mockito.**
+-dontwarn sun.reflect.**
+-dontwarn android.test.**
+
+########################################################################
+-dontwarn com.google.**

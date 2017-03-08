@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- STIMSHOP API KEY (replace with your own key) -->
+    <string name="stimshop_api_key">012345678901234567890123456789</string>
+
+    <!-- CHANNELS TO ENABLE -->
+    <integer-array name="stimshop_channels">
+        <item>2</item>
+        <!-- etc. -->
+    </integer-array>
+
+    <!-- DETECTORS TO ENABLE -->
+    <string-array name="stimshop_detectors">
+        <item>audio</item>
+        <item>bluetooth_le</item>
+    </string-array>
+
+    <!-- MESSENGER TYPE (optional, defaults to local_broadcaster) -->
+    <string name="stimshop_messenger">local_broadcaster</string>
+</resources>
