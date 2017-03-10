@@ -10,21 +10,17 @@ repositories {
 android {
     // We define these build constants in our main gradle.properties file. You can define it
     // manually here.
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion Integer.parseInt(BUILD_SDK_VERSION)
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         // We define these build constants in our main gradle.properties file. You can define it
         // manually here.
-        applicationId "com.stimshop.sdk.demo"
-        minSdkVersion 15
-        targetSdkVersion 25
+        applicationId APP_ID
+        minSdkVersion Integer.parseInt(APP_MIN)
+        targetSdkVersion Integer.parseInt(APP_TARGET)
         versionCode 1
         versionName "1.0"
-        jackOptions {
-            enabled false
-        }
-        multiDexEnabled true
     }
 
 
@@ -60,7 +56,6 @@ dependencies {
     // Demo app dependencies, other than the StimShop SDK
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
-    compile 'com.google.guava:guava:18.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
@@ -75,7 +70,7 @@ dependencies {
 
     // Change stimshop-sdk-commons-release to the AAR file name you have
     // Usually stimshop-sdk-commons-x.y.z where x.y.z is the version number
-    compile(name:'stimshop-sdk-commons-4.2.1', ext:'aar') {
+    compile(name:'stimshop-sdk-commons-x.y.z', ext:'aar') {
         transitive=true
     }
 }
