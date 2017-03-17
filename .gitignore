@@ -6,7 +6,8 @@
 .DS_Store
 /build
 /captures
-/app/libs/*.aar
+stimshop*.aar
+!/stimshop-sdk.zip
 
 .externalNativeBuild
 ### Windows template

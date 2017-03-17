@@ -54,8 +54,8 @@ dependencies {
 
     compile 'com.android.support:multidex:1.0.1'
     // Demo app dependencies, other than the StimShop SDK
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:design:25.3.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
@@ -66,11 +66,8 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:10.2.0'
     compile 'net.sourceforge.jtransforms:jtransforms:2.4.0'
 
-    // BEGIN - Stimshop SDK dependencies
-
-    // Change stimshop-sdk-commons-release to the AAR file name you have
-    // Usually stimshop-sdk-commons-x.y.z where x.y.z is the version number
-    compile(name:'stimshop-sdk-commons-x.y.z', ext:'aar') {
+    // The Stimshop SDK itself
+    compile(name:'stimshop-sdk-commons-4.2.1', ext:'aar') {
         transitive=true
     }
 }
