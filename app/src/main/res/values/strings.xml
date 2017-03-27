@@ -4,4 +4,5 @@
     <string name="act_main_sw_toggle_detection">Toggle detection</string>
     <string name="act_main_sw_jack_status">Jack plugged-in ?</string>
     <string name="act_main_sw_microphone_status">External microphone present ?</string>
+    <string name="act_main_title_signals">Signals:</string>
 </resources>

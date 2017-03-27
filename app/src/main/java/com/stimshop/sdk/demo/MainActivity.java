@@ -17,8 +17,10 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     int signalDetectedCount = 0;
 
     // Other objects
+    ArrayAdapter<String> signalLogAdapter;
     private Unbinder unbinder;  // ButterKnife unbinder
     Snackbar permSnackbar;
 
@@ -70,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.sw_microphone_status)
     SwitchCompat jackMicrophoneStatusSwitch;
 
-    @BindView(R.id.linear_log)
-    LinearLayout sigLogLinearLayout;
+    @BindView(R.id.signal_log_listview)
+    ListView signalLogListView;
 
     @BindView(R.id.main_layout)
     LinearLayout mainLayout;
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         unbinder = ButterKnife.bind(this);
+        signalLogAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.logger_list_item_text);
+        signalLogListView.setAdapter(signalLogAdapter);
 
         initializeSwitch.setEnabled(false);
         toggleDetectionSwitch.setEnabled(false);
@@ -250,12 +255,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Timber.d("Signal detected: %s", signalCode);
-            TextView tv = new TextView(context);
-            tv.setTextSize(24);
-            tv.setSingleLine(true);
-            tv.setTextColor(Color.BLACK);
-            tv.setText(++signalDetectedCount + " - " + signalCode);
-            sigLogLinearLayout.addView(tv, 0);
+            signalLogAdapter.insert(++signalDetectedCount + " - " + signalCode, 0);
+            signalLogAdapter.notifyDataSetChanged();
         }
     };
 

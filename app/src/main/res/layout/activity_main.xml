@@ -88,21 +88,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Signals:"
+        android:text="@string/act_main_title_signals"
         android:layout_margin="16dp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/signal_log_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/linear_log"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
+    </ListView>
 
 </LinearLayout>
