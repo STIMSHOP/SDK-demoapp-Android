@@ -1,13 +1,15 @@
+/.idea/
 *.iml
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
 stimshop*.aar
+# Track the SDK's archive (password protected)
 !/stimshop-sdk.zip
+# Ignore this file so we don't accidently publish a working API key on the remote repository
+/app/src/main/res/values/stimshop.xml
 
 .externalNativeBuild
 ### Windows template
@@ -183,4 +185,3 @@ captures/
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
-/.idea/
